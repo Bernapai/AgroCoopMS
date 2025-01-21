@@ -35,16 +35,4 @@ El sistema se divide en varios microservicios, cada uno encargado de diferentes 
 - **JWT (JSON Web Tokens)**: Autenticación y autorización de usuarios.
 - **API Gateway**: Manejo centralizado de solicitudes y redirección de microservicios.
 
-## Instalación 🚀
 
-### Requisitos
-
-1. Docker y Docker Compose instalados en tu máquina.
-
-### Pasos
-
-1. Clona este repositorio:
-
-   ```bash
-   git clone https://github.com/tuusuario/cooperativa-agricola.git
-   cd cooperativa-agricola
