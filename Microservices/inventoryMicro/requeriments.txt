@@ -1,0 +1,5 @@
+fastapi==0.100.0   # Framework principal para crear APIs
+uvicorn==0.23.1    # Servidor ASGI para ejecutar FastAPI
+pymongo==4.5.0     # Cliente oficial de MongoDB para Python
+motor==3.2.0       # Driver asíncrono de MongoDB compatible con FastAPI
+pydantic==1.10.7   # Validación de datos, viene integrado con FastAPI
