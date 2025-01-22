@@ -35,3 +35,7 @@ El sistema se divide en varios microservicios, cada uno encargado de diferentes 
 - **JWT (JSON Web Tokens)**: Autenticación y autorización de usuarios.
 - **API Gateway**: Manejo centralizado de solicitudes y redirección de microservicios.
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8b4a5a0faa328974d2375391aeb56a7d43f2bbfe
