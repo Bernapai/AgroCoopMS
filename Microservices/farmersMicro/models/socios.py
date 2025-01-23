@@ -1,6 +1,4 @@
 from pydantic import BaseModel
-from motor.motor_asyncio import AsyncIOMotorClient
-from bson import ObjectId
 
 class Socio(BaseModel):
     nombre: str
@@ -13,7 +11,3 @@ class Socio(BaseModel):
 
     class Config:
         orm_mode = True
-        json_encoders = {
-            ObjectId: str
-        }
-       
