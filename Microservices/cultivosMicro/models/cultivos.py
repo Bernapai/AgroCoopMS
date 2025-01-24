@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 from datetime import datetime
 from typing import Literal
-=
+
 
 class CultivoSchema(BaseModel):
     nombre: str
