@@ -34,10 +34,6 @@ El sistema se divide en varios microservicios, cada uno encargado de diferentes 
   
 
 
-  
-  
-
-
 
 ## Tecnologías Utilizadas 🔧
 
