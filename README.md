@@ -27,6 +27,18 @@ El sistema se divide en varios microservicios, cada uno encargado de diferentes 
      Endpoints: `/sales`  
      Funcionalidad: Control de ventas y generación de reportes financieros.
 
+   - **Servicio de Productos (Products)** 🛒🌾  
+     Endpoints:** `/productos`  
+     Funcionalidad:** Gestión de inventario, registro de productos, consulta, actualización de stock y eliminación de productos.  
+
+  
+
+
+  
+  
+
+
+
 ## Tecnologías Utilizadas 🔧
 
 - **FastAPI**: Framework para construir APIs rápidas y eficientes.
