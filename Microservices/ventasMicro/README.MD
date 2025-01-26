@@ -15,3 +15,4 @@ Microservicio que maneja las ventas y la generación de reportes financieros par
 - **FastAPI**
 - **MongoDB**
 - **Docker**
+- **Kafka**
