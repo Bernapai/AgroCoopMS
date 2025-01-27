@@ -1,5 +1,6 @@
 from fastapi import APIRouter
 from config.database import ventas_collection
+from config.rabbitmq import get_rabbitmq_connection
 from schemas.ventasSchema import VentasSchema
 from bson import ObjectId
 
@@ -35,6 +36,23 @@ def get_venta(id: str):
 def add_venta(venta: VentasSchema):
     venta = dict(venta)
     ventas_collection.insert_one(venta)
+
+    # Enviar mensaje a RabbitMQ
+    connection, channel = get_rabbitmq_connection()
+    message = {
+        "producto": venta["name_producto"],
+        "cantidad": venta["cantidad"]
+    }
+    channel.basic_publish(
+        exchange='',
+        routing_key='ventas_a_productos',
+        body=str(message),
+        properties=pika.BasicProperties(
+            delivery_mode=2,  # Hacer que el mensaje sea persistente
+        )
+    )
+    connection.close()
+    
     return {"message": "Venta registrada exitosamente"}
 
 @ventasRoute.put("/venta/{id}")
