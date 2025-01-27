@@ -1,6 +1,6 @@
 # Sistema de Gestión para Cooperativas Agrícolas 🌾🚜
 
-Este proyecto es una solución backend basada en microservicios para la gestión de cooperativas agrícolas. Utiliza **FastAPI** para los microservicios, **MongoDB** como base de datos , **Kafka** para la comunicacion entre los microservicios y **Docker** para contenerizar cada componente del sistema. Además, se ha implementado una **API Gateway** para manejar la autenticación, autorización y redirección de los servicios.
+Este proyecto es una solución backend basada en microservicios para la gestión de cooperativas agrícolas. Utiliza **FastAPI** para los microservicios, **MongoDB** como base de datos , **RabbitMQ** para la comunicacion entre los microservicios y **Docker** para contenerizar cada componente del sistema. Además, se ha implementado una **API Gateway** para manejar la autenticación, autorización y redirección de los servicios.
 
 ## Arquitectura 🏗️
 
