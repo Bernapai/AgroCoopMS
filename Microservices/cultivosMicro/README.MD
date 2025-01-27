@@ -8,8 +8,10 @@ Microservicio que gestiona la información y el seguimiento de cultivos.
 
 ## Endpoints
 - `GET /crops`: Lista todos los cultivos registrados.
+- `GET /crops/{id}`: Lista un cultivo registrado.
 - `POST /crops`: Agrega un nuevo cultivo.
 - `PUT /crops/{id}`: Actualiza la información de un cultivo.
+- `GET /crops/{id}`:Elimina un cultivo registrado.
 
 ## Tecnologías Utilizadas
 - **FastAPI**

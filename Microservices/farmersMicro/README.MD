@@ -8,6 +8,7 @@ Microservicio dedicado a la gestión de socios de la cooperativa agrícola.
   
 ## Endpoints
 - `GET /farmers`: Lista todos los socios.
+- `GET /farmers/{id}`: Lista un socio.
 - `POST /farmers`: Agrega un nuevo socio.
 - `PUT /farmers/{id}`: Actualiza la información de un socio.
 - `DELETE /farmers/{id}`: Elimina un socio.

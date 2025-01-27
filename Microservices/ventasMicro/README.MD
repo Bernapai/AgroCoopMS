@@ -9,10 +9,13 @@ Microservicio que maneja las ventas y la generación de reportes financieros par
 ## Endpoints
 - `GET /sales`: Lista todas las ventas.
 - `POST /sales`: Registra una nueva venta.
-- `GET /sales/reports`: Genera un reporte financiero.
+- `GET /sales/{id}`: Lista un reporte financiero.
+- `DEL /sales/{id}`: Elimina un reporte financiero.
+- `PUT /sales/{id}`: Actualiza un reporte financiero.
+
 
 ## Tecnologías Utilizadas
 - **FastAPI**
 - **MongoDB**
 - **Docker**
-- **Kafka**
+- **RabbitMQ**

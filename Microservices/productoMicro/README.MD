@@ -11,6 +11,7 @@ Microservicio encargado de la gestión del inventario de productos de la coopera
 
 ## Endpoints
 - `GET /productos`: Lista todos los productos.
+- `GET /productos/{id}`: Lista un producto.
 - `POST /productos`: Registra un nuevo producto.
 - `PUT /productos/{producto_id}`: Actualiza la información de un producto.
 - `DELETE /productos/{producto_id}`: Elimina un producto del inventario.
