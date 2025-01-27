@@ -42,4 +42,5 @@ El sistema se divide en varios microservicios, cada uno encargado de diferentes 
 - **Docker**: Contenerización de cada microservicio y su base de datos.
 - **JWT (JSON Web Tokens)**: Autenticación y autorización de usuarios.
 - **API Gateway**: Manejo centralizado de solicitudes y redirección de microservicios.
+- **RabbitMQ**: Comunicacion entre microservicios.
 
