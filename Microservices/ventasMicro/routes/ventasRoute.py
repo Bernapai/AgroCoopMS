@@ -64,5 +64,5 @@ def update_venta(id: str, venta: VentasSchema):
 @ventasRoute.delete("/venta/{id}")
 def delete_venta(id: str):
     ventas_collection.delete_one({"_id": ObjectId(id)})
-    return {"message": "Venta eliminada exit
+    return {"message": "Venta eliminada exitosamente"}
 

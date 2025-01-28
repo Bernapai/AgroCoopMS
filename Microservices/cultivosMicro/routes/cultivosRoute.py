@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from config.database import cultivos_collection
-from schemas.cultivoSchema import CultivoSchema
+from schemas.cultivosSchema import CultivoSchema
 from bson import ObjectId
 
 cultivoRoute = APIRouter()

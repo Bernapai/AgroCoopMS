@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from config.database import socios_collection
-from schemas.socioSchema import SocioSchema
+from schemas.sociosSchema import SocioSchema
 from bson import ObjectId
 
 socioRoute = APIRouter()
@@ -14,9 +14,9 @@ def get_socios():
             "nombre": socio["nombre"],
             "apellido": socio["apellido"],
             "dni": socio["dni"],
-            "telefono": socio["telefono"]
-            "direccion": socio["direccion"]
-            "fecha_nacimiento": socio["fecha_nacimiento"]
+            "telefono": socio["telefono"],
+            "direccion": socio["direccion"],
+            "fecha_nacimiento": socio["fecha_nacimiento"],
             "estado": socio["estado"]
         })
     return {"socios": socios}
@@ -29,9 +29,9 @@ def get_socio(id: str):
         "nombre": socio["nombre"],
         "apellido": socio["apellido"],
         "dni": socio["dni"],
-        "telefono": socio["telefono"]
-        "direccion": socio["direccion"]
-        "fecha_nacimiento": socio["fecha_nacimiento"]
+        "telefono": socio["telefono"],
+        "direccion": socio["direccion"],
+        "fecha_nacimiento": socio["fecha_nacimiento"],
         "estado": socio["estado"]
     }
         

@@ -1,6 +1,6 @@
 from fastapi import APIRouter
-from config.database import socios_collection
-from schemas.productoSchema import productoSchema
+from config.database import productos_collection
+from schemas.productoSchema import ProductoSchema
 from bson import ObjectId
 
 productoRoute = APIRouter()
@@ -32,13 +32,13 @@ def get_producto(id: str):
     }
 
 @productoRoute.post("/producto")
-def add_producto(producto: productoSchema):
+def add_producto(producto: ProductoSchema):
     producto = dict(producto)
     productos_collection.insert_one(producto)
     return {"message": "Producto registrado exitosamente"}
 
 @productoRoute.put("/producto/{id}")
-def update_producto(id: str, producto: productoSchema):
+def update_producto(id: str, producto: ProductoSchema):
     producto = dict(producto)
     productos_collection.update_one({"_id": ObjectId(id)}, {"$set": producto})
     return {"message": "Producto actualizado exitosamente"}

@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from config.database import cultivos_collection
+from config.database import logistics_collection
 from schemas.logisticsSchema import LogisticSchema
 from bson import ObjectId
 
@@ -9,7 +9,7 @@ logisticsRoute = APIRouter()
 @logisticsRoute.get("/logistics")
 def get_logistics():
     logistics = []
-    for logistic in cultivos_collection.find():
+    for logistic in logistics_collection.find():
         logistics.append({
             "id": str(logistic["_id"]),
             "nombre": logistic["nombre"],
@@ -22,12 +22,12 @@ def get_logistics():
 
 @logisticsRoute.get("/logistic/{id}")
 def get_logistic(id: str):
-    logistic = cultivos_collection.find_one({"_id": ObjectId(id)})
+    logistic = logistics_collection.find_one({"_id": ObjectId(id)})
     return {
         "id": str(logistic["_id"]),
         "nombre": logistic["nombre"],
         "descripcion": logistic["descripcion"],
-        "fecha_inicio": logistic["fecha_inicio"]",
+        "fecha_inicio": logistic["fecha_inicio"],
         "fecha_fin": logistic["fecha_fin"],
         "estado": logistic["estado"]
    }
@@ -35,16 +35,16 @@ def get_logistic(id: str):
 @logisticsRoute.post("/logistic")
 def add_logistic(logistic: LogisticSchema):
     logistic = dict(logistic)
-    cultivos_collection.insert_one(logistic)
+    logistics_collection.insert_one(logistic)
     return {"message": "Logistic registrado exitosamente"}
 
 @logisticsRoute.put("/logistic/{id}")
 def update_logistic(id: str, logistic: LogisticSchema):
     logistic = dict(logistic)
-    cultivos_collection.update_one({"_id": ObjectId(id)}, {"$set": logistic})
+    logistics_collection.update_one({"_id": ObjectId(id)}, {"$set": logistic})
     return {"message": "Logistic actualizado exitosamente"}
 
 @logisticsRoute.delete("/logistic/{id}")
 def delete_logistic(id: str):
-    cultivos_collection.delete_one({"_id": ObjectId(id)})
+    logistics_collection.delete_one({"_id": ObjectId(id)})
     return {"message": "Logistic eliminado exitosamente"}
