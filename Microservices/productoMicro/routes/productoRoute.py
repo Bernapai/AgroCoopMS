@@ -14,7 +14,8 @@ def get_productos():
             "nombre": producto["nombre"],
             "descripcion": producto["descripcion"],
             "precio": producto["precio"],
-            "stock": producto["stock"]
+            "stock": producto["stock"],
+            "estado":producto["estado"]
         })
     return {"productos": productos}
 
@@ -26,7 +27,8 @@ def get_producto(id: str):
         "nombre": producto["nombre"],
         "descripcion": producto["descripcion"],
         "precio": producto["precio"],
-        "stock": producto["stock"]
+        "stock": producto["stock"],
+        "estado":producto["estado"]
     }
 
 @productoRoute.post("/producto")

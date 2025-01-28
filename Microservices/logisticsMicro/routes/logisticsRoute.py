@@ -14,8 +14,8 @@ def get_logistics():
             "id": str(logistic["_id"]),
             "nombre": logistic["nombre"],
             "descripcion": logistic["descripcion"],
-            "fecha_siembra": logistic["fecha_siembra"],
-            "fecha_estimada": logistic["fecha_estimada"],
+            "fecha_inicio": logistic["fecha_inicio"],
+            "fecha_fin": logistic["fecha_fin"],
             "estado": logistic["estado"]
         })
     return {"logistics": logistics}
@@ -27,8 +27,8 @@ def get_logistic(id: str):
         "id": str(logistic["_id"]),
         "nombre": logistic["nombre"],
         "descripcion": logistic["descripcion"],
-        "fecha_siembra": logistic["fecha_siembra"],
-        "fecha_estimada": logistic["fecha_estimada"],
+        "fecha_inicio": logistic["fecha_inicio"]",
+        "fecha_fin": logistic["fecha_fin"],
         "estado": logistic["estado"]
    }
 
