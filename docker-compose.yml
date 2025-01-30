@@ -1,0 +1,123 @@
+version: '3.8'
+
+services:
+  api_gateway:
+    container_name: api_gateway
+    build:
+      context: ./api_gateway
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    depends_on:
+      - cultivos_service
+      - farmers_service
+      - logistics_service
+      - productos_service
+      - ventas_service
+
+  cultivos_service:
+    container_name: cultivos_service
+    build:
+      context: ./Microservices/cultivosMicro
+      dockerfile: Dockerfile
+    ports:
+      - "8001:8001"
+    environment:
+      - MONGO_URI=mongodb://cultivos_db:27017/cultivosdb
+    depends_on:
+      - cultivos_db
+
+  cultivos_db:
+    container_name: cultivos_db
+    image: mongo:5.0
+    ports:
+      - "27017:27017"
+    volumes:
+      - cultivos_data:/data/db
+
+  farmers_service:
+    container_name: farmers_service
+    build:
+      context: ./Microservices/farmersMicro
+      dockerfile: Dockerfile
+    ports:
+      - "8002:8002"
+    environment:
+      - MONGO_URI=mongodb://farmers_db:27017/farmersdb
+    depends_on:
+      - farmers_db
+
+  farmers_db:
+    container_name: farmers_db
+    image: mongo:5.0
+    ports:
+      - "27017:27017"
+    volumes:
+      - farmers_data:/data/db
+
+  logistics_service:
+    container_name: logistics_service
+    build:
+      context: ./Microservices/logisticsMicro
+      dockerfile: Dockerfile
+    ports:
+      - "8003:8003"
+    environment:
+      - MONGO_URI=mongodb://logistics_db:27017/logisticsdb
+    depends_on:
+      - logistics_db
+
+  logistics_db:
+    container_name: logistics_db
+    image: mongo:5.0
+    ports:
+      - "27017:27017"
+    volumes:
+      - logistics_data:/data/db
+
+  productos_service:
+    container_name: productos_service
+    build:
+      context: ./Microservices/productoMicro
+      dockerfile: Dockerfile
+    ports:
+      - "8004:8004"
+    environment:
+      - MONGO_URI=mongodb://productos_db:27017/productosdb
+    depends_on:
+      - productos_db
+
+  productos_db:
+    container_name: productos_db
+    image: mongo:5.0
+    ports:
+      - "27017:27017"
+    volumes:
+      - productos_data:/data/db
+
+  ventas_service:
+    container_name: ventas_service
+    build:
+      context: ./Microservices/ventasMicro
+      dockerfile: Dockerfile
+    ports:
+      - "8005:8005"
+    environment:
+      - MONGO_URI=mongodb://ventas_db:27017/ventasdb
+    depends_on:
+      - ventas_db
+
+  ventas_db:
+    container_name: ventas_db
+    image: mongo:5.0
+    ports:
+      - "27017:27017"
+    volumes:
+      - ventas_data:/data/db
+
+volumes:
+  cultivos_data:
+  farmers_data:
+  logistics_data:
+  productos_data:
+  ventas_data:
