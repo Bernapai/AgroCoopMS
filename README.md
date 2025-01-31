@@ -6,9 +6,9 @@ Este proyecto es una solución backend basada en microservicios para la gestión
 
 El sistema se divide en varios microservicios, cada uno encargado de diferentes aspectos de la cooperativa agrícola:
 
-1. **API Gateway** 🌐  
-   - Redirige las solicitudes a los microservicios correspondientes.
-   - Maneja la autenticación y autorización mediante tokens JWT.
+1. **API Gateway(Kong)** 🌐  
+   - Redirige las solicitudes a los microservicios correspondientes.(Kong)
+   - Maneja la autenticación y autorización mediante tokens JWT. (Kong)
 
 2. **Microservicios** 🖥️:
    - **Servicio de Gestión de Socios (Farmers)** 🚶‍♂️🚶‍♀️  
@@ -43,4 +43,5 @@ El sistema se divide en varios microservicios, cada uno encargado de diferentes 
 - **JWT (JSON Web Tokens)**: Autenticación y autorización de usuarios.
 - **API Gateway**: Manejo centralizado de solicitudes y redirección de microservicios.
 - **RabbitMQ**: Comunicacion entre microservicios.
+- **Kong**: Desplega la API Gateway
 

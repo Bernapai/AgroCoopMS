@@ -18,7 +18,7 @@ services:
   cultivos_service:
     container_name: cultivos_service
     build:
-      context: ./Microservices/cultivosMicro
+      context: ./Microservices/cultivosMicroo installation failed
       dockerfile: Dockerfile
     ports:
       - "8001:8001"
