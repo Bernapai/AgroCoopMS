@@ -1,0 +1,44 @@
+_format_version: "3.0"
+services:
+  - name: cultivos_service
+    url: http://cultivos_service:8001
+    routes:
+      - name: cultivos_route
+        paths:
+          - /cultivos
+  - name: farmers_service
+    url: http://farmers_service:8002
+    routes:
+      - name: farmers_route
+        paths:
+          - /farmers
+  - name: logistics_service
+    url: http://logistics_service:8003
+    routes:
+      - name: logistics_route
+        paths:
+          - /logistics
+  - name: productos_service
+    url: http://productos_service:8004
+    routes:
+      - name: productos_route
+        paths:
+          - /productos
+  - name: ventas_service
+    url: http://ventas_service:8005
+    routes:
+      - name: ventas_route
+        paths:
+          - /ventas
+
+plugins:
+  - name: key-auth
+    service: cultivos_service
+  - name: key-auth
+    service: farmers_service
+  - name: key-auth
+    service: logistics_service
+  - name: key-auth
+    service: productos_service
+  - name: key-auth
+    service: ventas_service
