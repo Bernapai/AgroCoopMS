@@ -24,6 +24,7 @@ services:
       - logistics_service
       - productos_service
       - ventas_service
+      - rabbitmq
 
   cultivos_service:
     container_name: cultivos_service
@@ -93,9 +94,10 @@ services:
     ports:
       - "8004:8004"
     environment:
-      - MONGO_URI=mongodb://productos_db:27017/productosdb
+      - MONGO_URI=mongodb://productos_db:27017/productosdb - RABBITMQ_HOST=rabbitmq
     depends_on:
       - productos_db
+      - rabbitmq
 
   productos_db:
     container_name: productos_db
@@ -113,9 +115,10 @@ services:
     ports:
       - "8005:8005"
     environment:
-      - MONGO_URI=mongodb://ventas_db:27017/ventasdb
+      - MONGO_URI=mongodb://ventas_db:27017/ventasdb - RABBITMQ_HOST=rabbitmq
     depends_on:
       - ventas_db
+      - rabbitmq
 
   ventas_db:
     container_name: ventas_db
@@ -125,9 +128,22 @@ services:
     volumes:
       - ventas_data:/data/db
 
+  rabbitmq:
+  container_name: rabbitmq
+  image: rabbitmq:management
+  ports:
+    - "5672:5672" # Puerto para conexiones AMQP
+    - "15672:15672" # Puerto para la interfaz web de administración
+  environment:
+    RABBITMQ_DEFAULT_USER: user # Usa tu usuario existente aquí
+    RABBITMQ_DEFAULT_PASS: password # Usa la contraseña correspondiente a tu usuario
+  volumes:
+    - rabbitmq_data:/var/lib/rabbitmq
+
 volumes:
   cultivos_data:
   farmers_data:
   logistics_data:
   productos_data:
   ventas_data:
+  rabbitmq_data:
